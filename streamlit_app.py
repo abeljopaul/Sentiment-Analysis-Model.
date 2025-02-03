@@ -1,7 +1,7 @@
 import streamlit as st
 import pickle
 import nltk
-from nltk.stem import PorterStemmer
+import re
 
 # Download NLTK resources (run only once)
 nltk.download('punkt')
@@ -16,17 +16,18 @@ def load_model_and_vectorizer():
     vectorizer = pickle.load(open('vectorizer.sav', 'rb'))
     return model, vectorizer
 
-# Function for stemming
-def stemming(text):
-    words = nltk.word_tokenize(text)  # Tokenize text
-    stemmed_words = [stemmer.stem(word) for word in words]  # Stem each word
-    return " ".join(stemmed_words)  # Return stemmed text
+
+def clean_text(text):
+    text = text.lower()  # Convert to lowercase
+    text = re.sub(r'[^a-zA-Z0-9\s]', '', text)  # Remove punctuation & special characters
+    return text
+
 
 # Function for predicting sentiment of custom text
 def predict_sentiment(text):
     loaded_model, vectorizer = load_model_and_vectorizer()
 
-    stemmed_text = stemming(text)
+    stemmed_text = clean_text(text)
     text_vectorized = vectorizer.transform([stemmed_text])
     prediction = loaded_model.predict(text_vectorized)
 
