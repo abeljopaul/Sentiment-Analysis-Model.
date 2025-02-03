@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import numpy as np
 
 # Function to load the model and vectorizer
 def load_model_and_vectorizer():
