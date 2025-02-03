@@ -1,6 +1,5 @@
 import streamlit as st
 import pickle
-import numpy as np
 
 # Function to load the model and vectorizer
 def load_model_and_vectorizer():
@@ -21,12 +20,7 @@ def predict_sentiment(text):
     text_vectorized = vectorizer.transform([stemmed_text])
     prediction = loaded_model.predict(text_vectorized)
     
-    # Check if the prediction is in expected format (0,1,2)
-    if isinstance(prediction[0], (int, np.integer)):
-        sentiment_class = int(prediction[0])
-    else:
-        st.error(f"Unexpected model output: {prediction[0]}")
-        return "Unknown"
+    sentiment_class = int(prediction[0])
 
     # Map prediction to sentiment labels
     sentiment_mapping = {0: 'Negative', 1: 'Neutral', 2: 'Positive'}
