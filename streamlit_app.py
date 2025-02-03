@@ -21,7 +21,8 @@ def predict_sentiment(text):
     prediction = loaded_model.predict(text_vectorized)
     
     sentiment_class = int(prediction[0])
-
+    print("prediciton:::")
+    pring(sentiment_class)
     # Map prediction to sentiment labels
     sentiment_mapping = {0: 'Negative', 1: 'Neutral', 2: 'Positive'}
     
