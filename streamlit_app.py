@@ -39,7 +39,7 @@ def predict_sentiment(text):
     return sentiment_mapping.get(sentiment_class, "Unknown")
 
 # Streamlit UI
-st.title("📊 Twitter Sentiment Analysis")
+st.title("📊Sentiment-Analysis-Model")
 st.write("""
     This app predicts the sentiment of **Twitter tweets**.
     Enter a tweet below, and the app will classify it as:
