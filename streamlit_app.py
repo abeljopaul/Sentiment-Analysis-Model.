@@ -3,11 +3,6 @@ import pickle
 import nltk
 import re
 
-# Download NLTK resources (run only once)
-nltk.download('punkt')
-
-# Initialize stemmer
-stemmer = PorterStemmer()
 
 # Function to load the model and vectorizer (Lazy Loading)
 @st.cache_resource
