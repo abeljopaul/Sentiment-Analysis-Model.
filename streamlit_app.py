@@ -43,9 +43,9 @@ st.title("📊 Twitter Sentiment Analysis")
 st.write("""
     This app predicts the sentiment of **Twitter tweets**.
     Enter a tweet below, and the app will classify it as:
-    - **Negative** 😠
-    - **Neutral** 😐
-    - **Positive** 😊
+    - **Negative** 
+    - **Neutral** 
+    - **Positive**
 """)
 
 # Text input field for the Twitter tweet
